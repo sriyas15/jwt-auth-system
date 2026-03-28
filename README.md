@@ -122,9 +122,9 @@ npm install
 
 ```
 PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-REFRESH_TOKEN_SECRET=your_refresh_secret
+MONGO_DB_URL=your_mongodb_connection_string
+JWT_ACCESS_SECRET=your_jwt_secret
+JWT_REFRESH_SECRET=your_refresh_secret
 ```
 
 ### 5️⃣ Run the Server
@@ -133,11 +133,7 @@ REFRESH_TOKEN_SECRET=your_refresh_secret
 npm run dev
 ```
 
-Server runs on:
-
-```
-http://localhost:3000
-```
+Server is Running from 3000
 
 ---
 
@@ -207,13 +203,59 @@ All endpoints were tested using **Postman** to verify:
 
 ---
 
-# 📌 Key Security Practices
+# 🚀 Potential Future Improvements
 
-- Password hashing using **bcrypt**
-- **Short-lived access tokens**
-- **HTTP-only cookies** for refresh tokens
-- **JWT verification middleware**
-- Centralized **async error handling**
+### 1. Role-Based Authorization
+Add roles such as:
+
+- **Admin**
+- **User**
+- **Moderator**
+
+This would allow restricting routes like:
+
+
+---
+
+### 2. Email Verification
+Implement **email verification during registration** to ensure valid users.
+
+Flow:
+
+1. User registers
+2. Verification email sent
+3. Account activated after clicking verification link
+
+---
+
+### 3. Password Reset System
+Add **forgot password functionality**.
+
+Flow:
+
+1. User requests password reset
+2. Server generates **reset token**
+3. Email sent with reset link
+4. User sets new password
+
+---
+
+### 4. Rate Limiting & Security Enhancements
+Add security middlewares such as:
+
+- **express-rate-limit** → prevent brute force attacks
+- **helmet** → secure HTTP headers
+- **cors configuration**
+
+---
+
+### 5. Logging & Monitoring
+Integrate logging tools such as:
+
+- **Winston**
+- **Morgan**
+
+This helps in debugging and monitoring production servers.
 
 ---
 
